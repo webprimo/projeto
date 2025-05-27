@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cores Automáticas</title>
+    <link rel="shortcut icon" href="assents/Fiveicon.png.png" type="image/x-icon">
+    
+    <style>
+        /* Estilos CSS */
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            background-color: #f0f0f0; /* Cor de fundo padrão, será alterada pelo JS */
+        }
+
+        .container {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .parte {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 3em;
+            box-sizing: border-box;
+            transition: background-color 0.8s ease; /* Transição mais suave */
+            width: 45%;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto para melhor legibilidade */
+        }
+
+        #linhaMeio {
+            background-color: #000000; /* Linha preta no meio */
+            width: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 2em;
+        }
+
+        h2 {
+            margin: 10px 0;
+            font-size: 1.2em; /* Um pouco maior para o hexCode */
+            text-align: center;
+        }
+
+        /* Se você ainda quiser as "color-line" (linhas superior e inferior), pode estilizá-las aqui */
+        .color-line {
+            width: 100%;
+            height: 5px; /* Altura da linha */
+            background-color: #000; /* Cor padrão, pode ser mudada */
+            position: absolute;
+            z-index: 10;
+        }
+
+        .top-line {
+            top: 0;
+            left: 0;
+        }
+
+        .bottom-line {
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="color-line top-line"></div>
+    <div class="color-line bottom-line"></div>
+
+    <div class="container">
+        <div id="parteEsquerda" class="parte">
+            <!-- <h2>Cor Esquerda:</h2> -->
+            <h2 id="hexCodeEsquerda">#FFFFFF</h2>
+        </div>
+        <div id="linhaMeio">
+            </div>
+        <div id="parteDireita" class="parte">
+            <!-- <h2>Cor Direita:</h2> -->
+            <h2 id="hexCodeDireita">#FFFFFF</h2>
+        </div>
+    </div>
+    
+    <script>
+        // JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            const parteEsquerda = document.getElementById('parteEsquerda');
+            const parteDireita = document.getElementById('parteDireita');
+            const hexCodeEsquerda = document.getElementById('hexCodeEsquerda');
+            const hexCodeDireita = document.getElementById('hexCodeDireita');
+
+            // Função para gerar uma cor hexadecimal aleatória
+            function randomColor() {
+                let letters = "0123456789ABCDEF";
+                let color = "#";
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            // Função que aplica as cores aleatórias e atualiza os textos HEX
+            function aplicarCoresAleatorias() {
+                const corEsquerda = randomColor();
+                const corDireita = randomColor();
+
+                parteEsquerda.style.backgroundColor = corEsquerda;
+                parteDireita.style.backgroundColor = corDireita;
+                hexCodeEsquerda.innerHTML = corEsquerda;
+                hexCodeDireita.innerHTML = corDireita;
+            }
+
+            // Chama a função aplicarCoresAleatorias() a cada 1000 milissegundos (1 segundo)
+            // Isso fará com que as cores mudem automaticamente e continuamente.
+            setInterval(aplicarCoresAleatorias, 1000); 
+
+            // Chama a função uma vez ao carregar a página para definir as cores iniciais
+            aplicarCoresAleatorias();
+
+            console.log("Página carregada e cores automáticas ativadas!");
+        });
+    </script>
+</body>
+</html>

@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divisão de Cores Dinâmica</title>
-    <link rel="stylesheet" href="style.css"> <link rel="shortcut icon" href="/assents/Fiveicon.png.png" type="image/x-icon">
+    <title>Seletor de Cores</title>
+    <link rel="shortcut icon" href="assents/Fiveicon.png.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+   <div class="color-line top-line"></div>
+    <div class="color-line bottom-line"></div>
+
     <div class="container">
-        <div class="parte" id="parteEsquerda">
-            
+        <div id="parteEsquerda" class="parte">
+            <h2 id="hexCodeEsquerda">#FFFFFF</h2>
         </div>
-        <div class="linha-divisoria" id="linhaMeio">
-            <button id="btnTrocarCores">Qual sua cor? 💙</button>
+        <div id="linhaMeio">
+            <button id="btnTrocarCores">Mudar Cores! 💙</button>
         </div>
-        <div class="parte" id="parteDireita">
-            
+        <div id="parteDireita" class="parte">
+            <h2 id="hexCodeDireita">#FFFFFF</h2>
         </div>
     </div>
 
-    <script src="script.js"></script>
+   <script src="script.js"></script>
 </body>
 </html>
