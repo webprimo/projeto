@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    /* Ajuste a altura para 100vh pois o botão não está mais fora */
+    height: 100vh;
+}
+
+.parte {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3em;
+    box-sizing: border-box;
+    transition: background-color 0.5s ease;
+}
+
+#parteEsquerda {
+    background-color: #3498db;
+    width: 45%;
+}
+
+#linhaMeio {
+    background-color: #000000; /* Linha preta */
+    width: 10%;
+    display: flex;
+    /* Centraliza o conteúdo (o botão) dentro da linha */
+    justify-content: center;
+    align-items: center;
+    color: white; /* Cor do texto "10%" se ele existisse */
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#parteDireita {
+    background-color: #e74c3c;
+    width: 45%;
+}
+
+button {
+    /* Removemos o margin-top, pois ele agora está dentro da linha */
+    padding: 15px 25px; /* Ajuste o padding para o botão ficar menor */
+    font-size: 1em; /* Ajuste o tamanho da fonte do botão */
+    background-color: #000000;
+    color: rgb(255, 0, 0);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Garante que o botão não seja afetado pelo text-content da linha */
+    position: relative;
+    z-index: 1; /* Garante que o botão fique acima do texto "10%" se ele voltar */
+}
+
+button:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: #000000;
+    transform: translateY(0);
+}
